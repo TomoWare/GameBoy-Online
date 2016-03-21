@@ -18,9 +18,11 @@ var settings = [						//Some settings.
 	true,								//Use image smoothing based scaling?
     [true, true, true, true]            //User controlled channel enables.
 ];
-function start(canvas, ROM) {
+function start(canvas, ROM, skipAutoSave) {
 	clearLastEmulation();
-	autoSave();	//If we are about to load a new game, then save the last one...
+	if (skipAutoSave === undefined || skipAutoSave === false) {
+		autoSave();	//If we are about to load a new game, then save the last one...
+	}
 	gameboy = new GameBoyCore(canvas, ROM);
 	gameboy.openMBC = openSRAM;
 	gameboy.openRTC = openRTC;
