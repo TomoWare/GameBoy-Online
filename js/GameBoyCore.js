@@ -5048,7 +5048,7 @@ GameBoyCore.prototype.initLCD = function () {
 	}
 }
 GameBoyCore.prototype.graphicsBlit = function () {
-	if (this.offscreenWidth == this.onscreenWidth && this.offscreenHeight == this.onscreenHeight) {
+	if (!settings[12] || (this.offscreenWidth == this.onscreenWidth && this.offscreenHeight == this.onscreenHeight)) {
 		this.drawContextOnscreen.putImageData(this.canvasBuffer, 0, 0);
 	}
 	else {
