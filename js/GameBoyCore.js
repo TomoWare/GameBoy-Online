@@ -5096,7 +5096,9 @@ GameBoyCore.prototype.initSound = function () {
 	}
 }
 GameBoyCore.prototype.stopSound = function() {
-	this.audioHandle.disconnect();
+	if (this.audioHandle) {
+		this.audioHandle.disconnect();
+	}
 }
 GameBoyCore.prototype.changeVolume = function () {
 	if (settings[0] && this.audioHandle) {
